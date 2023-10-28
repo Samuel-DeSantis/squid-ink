@@ -11,7 +11,9 @@
 
   NOTE: password and password_confirmation contain the user entered password while password_digest stores the hashed password
 
-- Create Project
-  - name => string
-  - assigned_to => integer
-  - manager => integer
+- Create Post
+  - belongs_to User
+  - Content
+  - has_many comments
+  - has_many likes
+  - has_many shares
