@@ -11,9 +11,16 @@
 
   NOTE: password and password_confirmation contain the user entered password while password_digest stores the hashed password
 
-- Create Post
+- Create Posts
   - belongs_to User
-  - Content
+  - Content => string
   - has_many comments
-  - has_many likes
-  - has_many shares
+  - likes => integer
+  - shares => integer
+
+- Create Comments
+  - belongs_to Post
+  - belongs_to User
+  - content => string
+  - likes => integer
+
