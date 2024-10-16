@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import UserContext from '../../context/UserContext'
 
 function SignIn() {
+  const { user, sign_in, sign_out } = useContext(UserContext)
 
   const URL = 'http://localhost:8080'
   // const navigate = useNavigate()
@@ -19,7 +21,7 @@ function SignIn() {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    const user = { ...form }
+    const userForm = { ...form }
     try {
       let response
       response = await fetch(`${URL}/sign_in`, {
@@ -27,10 +29,18 @@ function SignIn() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(userForm)
       })
       .then(res => res.json())
-      .then(result => console.log(result))
+      .then(result => {
+        console.log(result)
+        sign_in({
+          first_name: result.first_name,
+          last_name: result.last_name,
+          username: result.username,
+          email: result.email,
+        })
+      })
       if (!response.ok) {
         let error_message
         switch (response.status) {
@@ -43,7 +53,7 @@ function SignIn() {
         throw new Error(error_message)
       }
     } catch (error) {
-      alert(error)
+      console.error(error)
     } finally {
       setForm({
         username: '',

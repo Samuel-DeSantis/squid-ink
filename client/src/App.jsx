@@ -1,25 +1,14 @@
-import { createContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
+import UserProvider from './context/UserProvider.jsx'
+import router from './routes/router.jsx'
 import './App.css'
-import SignIn from './pages/public/SignIn'
-import SignUp from './pages/public/SignUp'
-
-const UserContext = createContext()
 
 function App() {
 
-  // const [user, setUser] = useState({
-  //   first_name: '',
-  //   last_name: '',
-  //   username: '',
-  //   email: '',
-  // })
-
   return (
-    <>
-      <SignIn />
-      <SignUp />
-    </>
+    <UserProvider>
+      <RouterProvider router={ router } />
+    </UserProvider>
   )
 }
 
