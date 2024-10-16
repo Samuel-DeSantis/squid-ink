@@ -20,25 +20,48 @@ app.get('/', (req, res) => {
   res.send({'msg': 'hello'})
 })
 
-app.post('/user', async (req, res) => {
-  // console.table(req.body)
-  console.log(req.body)
+app.post('/sign_up', async (req, res) => {
+
   const password_digest = await auth.hash(req.body.password)
-  console.log(password_digest)
 
   const user = {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     username: req.body.username,
-    password: password_digest,
+    email: req.body.email,
+    password_digest: password_digest,
   }
 
-  let { data, error } = await db
+    let { data, error } = await db
     .from('users')
     .insert([user])
     .select('*')
+    if(error) {
+      console.error(error)
+      res.send('Error adding record').status(409) // 409 - Conflict
+    } else {
+      res.send(data).status(200) // 200 - OK
+    }
+})
 
-  res.send('POST').status(200)
+app.post('/sign_in', async (req, res) => {
+
+  let { data, error } = await db
+    .from('users')
+    .select('*')
+    .eq('username', req.body.username)
+    .limit(1)
+    .single()
+
+
+  
+  const is_password = await auth.check(req.body.password, data.password_digest)
+  console.log(is_password)
+
+  delete data["password_digest"]
+  console.log(data)
+
+  res.send(data).status(200)
 })
 
 app.listen(PORT, () => {
