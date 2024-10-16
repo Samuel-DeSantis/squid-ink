@@ -40,12 +40,14 @@ Attributes and types assigned in
 | password_digest | text |
 
 #### Project [FUTURE]
+Focusing on 1-user / project to start.
 |      Attr.      | Type |
 |-----------------|------|
 | id              | int8 |
 | name            | text |
 | location        | text |
 | client          | text |
+| user_id         | int8 |
 
 #### Circuit Schedule [FUTURE]
 |      Attr.      | Type |
@@ -65,3 +67,4 @@ Attributes and types assigned in
 | supplied_by     | text |
 | comments        | text |
 | rev             | text |
+| project_id      | int8 |
