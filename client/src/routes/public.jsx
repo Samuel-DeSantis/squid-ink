@@ -8,35 +8,20 @@ export const publicRouter = [
   {
     path: "/",
     element: <Layout />,
+    errorElement: <PageNotFound />,
     children: [
       {
         path: "/",
         element: <Home />,
       },
-    ]
-  },
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
       {
-        path: "sign_in",
+        path: "/sign_in",
         element: <SignIn />,
       },
-    ]
-  },
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
       {
-        path: "sign_up",
+        path: "/sign_up",
         element: <SignUp />,
       },
     ]
-  },
-  {
-    path: "*",
-    element: <PageNotFound />,
   },
 ]

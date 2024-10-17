@@ -1,0 +1,12 @@
+.dashboardGroup {
+  padding-left: 3rem;
+}
+.projectGroup {
+  padding-top: 1rem;
+
+}
+.attrGroup {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  max-width: 18rem;
+}

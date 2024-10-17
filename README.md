@@ -7,17 +7,17 @@ Built with: [Vite](https://vite.dev/)
 The structure of the website:
 ```
 public
-|-home
-|-sign_in
-|-sign_up
+|--home
+|--sign_in
+|--sign_up
 
 protected
-|-dashboard
-    |-analytics [FUTURE]
-    |-settings [FUTURE]
-|-user
-    |-profile [FUTURE]
-    |-preferences [FUTURE]
+|--dashboard
+    |--analytics [FUTURE]
+    |--settings [FUTURE]
+|--user
+    |--profile [FUTURE]
+    |--preferences [FUTURE]
 ```
 
 ## server

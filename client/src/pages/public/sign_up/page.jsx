@@ -1,8 +1,6 @@
 import { useState } from 'react'
 
-import btnStyle from '../../../styles/buttons.module.css'
-import formStyle from '../../../styles/forms.module.css'
-import headingStyle from '../../../styles/headings.module.css'
+import style from './style.module.css'
 
 function SignUp() {
 
@@ -61,10 +59,10 @@ function SignUp() {
     }
   }
   return (
-    <div className={ formStyle.form_wrapper }>
+    <div className={ style.formContainer }>
       <form onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
-        <div className={ formStyle.form_group }>
+        <div className={ style.formGroup }>
           <label htmlFor="">First Name:</label>
           <input
             type="text"
@@ -74,7 +72,7 @@ function SignUp() {
             onChange={handleChange}
           />
         </div>
-        <div className={ formStyle.form_group }>
+        <div className={ style.formGroup }>
           <label htmlFor="">Last Name:</label>
           <input
             type="text"
@@ -84,7 +82,7 @@ function SignUp() {
             onChange={handleChange}
           />
         </div>
-        <div className={ formStyle.form_group}>
+        <div className={ style.formGroup}>
           <label htmlFor="">Username:</label>
           <input
             type="text"
@@ -94,7 +92,7 @@ function SignUp() {
             onChange={handleChange}
           />
         </div>
-        <div className={ formStyle.form_group}>
+        <div className={ style.formGroup}>
           <label htmlFor="">Email:</label>
           <input
             type="email"
@@ -104,7 +102,7 @@ function SignUp() {
             onChange={handleChange}
           />
         </div>
-        <div className={ formStyle.form_group}>
+        <div className={ style.formGroup}>
           <label htmlFor="">Password:</label>
           <input
             type="password"
@@ -114,7 +112,13 @@ function SignUp() {
             onChange={handleChange}
           />
         </div>
-        <input type="submit" name="Submit" id="" />
+        <div className={ style.formGroup }>
+          <input
+            className={ style.submit}
+            type="submit"
+            name="Submit"
+          />
+        </div>
       </form>
     </div>
   )

@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
+import style from './style.module.css'
 
 function Dashboard() {
 
@@ -22,15 +25,27 @@ function Dashboard() {
     },
   ]
   return (
-    <div>
+    <div className={ style.dashboardGroup}>
       <h2>Dashboard</h2>
+      <div>
+        <Link>New Project</Link>
+      </div>
       <div>Your Projects</div>
       { projects.map((project, index) => (
-        <div key={ index }>
-          <div>{ project.name }</div>
-          <div>{ project.location }</div>
-          <div>{ project.cables }</div>
-        </div>
+        <Link to={'/project/' + index} className={style.projectGroup } key={ index }>
+          <div className={ style.attrGroup }>
+            <div className={ style.projectHeading }>Name</div>
+            <div>{ project.name }</div>
+          </div>
+          <div className={ style.attrGroup }>
+            <div className={ style.projectHeading }>Location</div>
+            <div>{ project.location }</div>
+          </div>
+          <div className={ style.attrGroup }>
+            <div className={ style.projectHeading }>Cables</div>
+            <div>{ project.cables }</div>
+          </div>
+        </Link>
       ))}
       <div></div>
     </div>

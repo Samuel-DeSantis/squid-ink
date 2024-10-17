@@ -1,32 +1,24 @@
-import { useContext, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
+import {useNavigate } from 'react-router-dom'
 import UserContext from '../../../context/UserContext'
 
-import btnStyle from '../../../styles/buttons.module.css'
-import formStyle from '../../../styles/forms.module.css'
-import headingStyle from '../../../styles/headings.module.css'
-
+import style from './style.module.css'
 
 function SignIn() {
   const { user, sign_in, sign_out } = useContext(UserContext)
 
   const URL = 'http://localhost:8080'
-  // const navigate = useNavigate()
-  const [form, setForm] = useState({
-    username: '',
-    password: '',
-  })
-
-  const handleChange = e => {
-    const {name, value} = e.target
-    setForm(prevState => ({
-      ...prevState,
-      [name]: value
-    }))
-  }
+  const navigate = useNavigate()
+  const usernameRef = useRef()
+  const passwordRef = useRef()
 
   const handleSubmit = async e => {
     e.preventDefault()
-    const userForm = { ...form }
+    console.log(usernameRef.current.value, passwordRef.current.value)
+    const userForm = {
+      username: usernameRef.current.value,
+      password: passwordRef.current.value
+    }
     try {
       let response
       response = await fetch(`${URL}/sign_in`, {
@@ -60,47 +52,41 @@ function SignIn() {
     } catch (error) {
       console.error(error)
     } finally {
-      setForm({
-        username: '',
-        password: '',
-      })
-      // navigate('/')
+      navigate('/dashboard')
     }
   }
 
   return (
-    <div className={ formStyle.form_wrapper }>
+    <div className={ style.formContainer }>
       <form onSubmit={handleSubmit}>
         <h2>Sign In</h2>
-        <div className={ formStyle.form_group }>
+        <div className={ style.formGroup }>
           <label htmlFor="" >Username:</label>
           <input
-            className={ formStyle.input }
+            className={ style }
             type="text"
             name="username"
-            value={form.username}
             id="username"
-            onChange={handleChange}
+            ref={usernameRef}
           />
         </div>
-        <div className={ formStyle.form_group }>
+        <div className={ style.formGroup }>
           <label htmlFor="" >Password:</label>
           <input
-            className={ formStyle.input }
+            className={ style }
             type="password"
             name="password"
-            value={form.password}
             id="password"
-            onChange={handleChange}
+            ref={passwordRef}
           />
         </div>
-        {/* <div className={ formStyle.form_group }> */}
-          <input
-            className={ btnStyle.submit }
-            type="submit"
-            name="Submit"
-          />
-        {/* </div> */}
+          <div className={ style.formGroup }>
+            <input
+              className={ style.submit }
+              type="submit"
+              name="Submit"
+            />
+          </div>
       </form>
     </div>
   )

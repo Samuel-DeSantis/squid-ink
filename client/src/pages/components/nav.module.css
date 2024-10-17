@@ -1,13 +1,20 @@
 nav {
   display: flex;
   justify-content: space-between;
-
   padding: 2rem;
 }
-.link {
+a {
+  padding: 0.5rem;
+  margin: 0.5rem;
   text-decoration: none;
   color: black;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
 }
-.link:hover {
-  text-decoration: underline;
+a:hover {
+  background-color: rgba(205, 205, 205, 0.25);
+}
+.linksContainer {
+  /* /* display: block;/ */
+  align-items: center;
 }

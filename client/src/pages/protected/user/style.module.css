@@ -1,0 +1,11 @@
+.userGroup {
+  padding-left: 3rem;
+  max-width: 20rem;
+}
+.attrGroup {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.attrHeading {
+  font-weight: 700;
+}

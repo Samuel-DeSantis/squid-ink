@@ -1,0 +1,33 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  align-items: center;
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
+}
+label {
+  font-weight: 700;
+}
+input {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+}
+.submit {
+  transition: 150ms;
+
+  background-color: rgb(23, 23, 248);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.submit:hover {
+  transition: 150ms;
+  
+  background-color: rgb(12, 12, 154);
+}
