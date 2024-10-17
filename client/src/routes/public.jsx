@@ -1,10 +1,8 @@
 import Layout from '../pages/layout'
-import Home from '../pages/public/Home'
-import SignIn from '../pages/public/SignIn'
-import SignUp from '../pages/public/SignUp'
+import Home from '../pages/public/home/page.jsx'
+import SignIn from '../pages/public/sign_in/page.jsx'
+import SignUp from '../pages/public/sign_up/page.jsx'
 import PageNotFound from '../pages/public/PageNotFound'
-import Protected from '../pages/components/Protected'
-import Dashboard from '../pages/protected/Dashboard'
 
 export const publicRouter = [
   {

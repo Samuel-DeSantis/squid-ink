@@ -1,0 +1,17 @@
+.form_wrapper {
+  display: flex;
+  justify-content: center;
+  
+}
+form {
+  max-width: 24rem;
+}
+.form_group {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}

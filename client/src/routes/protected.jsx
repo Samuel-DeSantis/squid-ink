@@ -1,6 +1,7 @@
-import Dashboard from '../pages/protected/Dashboard'
 import Protected from '../pages/components/Protected'
-import User from '../pages/protected/User'
+import Dashboard from '../pages/protected/dashboard/page.jsx'
+import User from '../pages/protected/user/page.jsx'
+// import User from '../pages/protected/User'
 
 export const protectedRouter = [
   {
@@ -19,7 +20,7 @@ export const protectedRouter = [
     children: [
       {
         path: "/user",
-        element: <User />,
+        element: <User/>,
       },
     ]
   },

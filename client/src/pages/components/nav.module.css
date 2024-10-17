@@ -1,0 +1,13 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 2rem;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.link:hover {
+  text-decoration: underline;
+}

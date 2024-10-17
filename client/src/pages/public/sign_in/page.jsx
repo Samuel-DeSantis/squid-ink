@@ -1,5 +1,10 @@
 import { useContext, useState } from 'react'
-import UserContext from '../../context/UserContext'
+import UserContext from '../../../context/UserContext'
+
+import btnStyle from '../../../styles/buttons.module.css'
+import formStyle from '../../../styles/forms.module.css'
+import headingStyle from '../../../styles/headings.module.css'
+
 
 function SignIn() {
   const { user, sign_in, sign_out } = useContext(UserContext)
@@ -64,28 +69,40 @@ function SignIn() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Sign In</h2>
-      <label htmlFor="" style={{display: "flex"}}>Username:
-        <input 
-          type="text"
-          name="username"
-          value={form.username}
-          id="username" 
-          onChange={handleChange}
+    <div className={ formStyle.form_wrapper }>
+      <form onSubmit={handleSubmit}>
+        <h2>Sign In</h2>
+        <div className={ formStyle.form_group }>
+          <label htmlFor="" >Username:</label>
+          <input
+            className={ formStyle.input }
+            type="text"
+            name="username"
+            value={form.username}
+            id="username"
+            onChange={handleChange}
           />
-      </label>
-      <label htmlFor="" style={{display: "flex"}}>Password:
-        <input 
-          type="password"
-          name="password"
-          value={form.password}
-          id="password" 
-          onChange={handleChange}
+        </div>
+        <div className={ formStyle.form_group }>
+          <label htmlFor="" >Password:</label>
+          <input
+            className={ formStyle.input }
+            type="password"
+            name="password"
+            value={form.password}
+            id="password"
+            onChange={handleChange}
           />
-      </label>
-      <input type="submit" name="Submit" id="" />
-    </form>
+        </div>
+        {/* <div className={ formStyle.form_group }> */}
+          <input
+            className={ btnStyle.submit }
+            type="submit"
+            name="Submit"
+          />
+        {/* </div> */}
+      </form>
+    </div>
   )
 }
 
